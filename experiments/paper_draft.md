@@ -1,6 +1,6 @@
 # DeepShield: Robust AI-Generated Speech Detection Under Unseen Voice Generators and Real-World Audio Degradations
 
-**Draft Compiled:** 2026-10-26 20:42:39  
+**Draft Compiled:** 2026-10-26 21:24:11  
 **Framework:** DeepShield PyTorch Research Platform  
 
 ---

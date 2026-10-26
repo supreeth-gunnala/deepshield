@@ -159,8 +159,10 @@ def main():
         ensemble_engine = ModelEnsemble([("2D CNN Baseline", cnn_model), ("Advanced CRNN", crnn_model)], weights=[0.4, 0.6])
 
     # Navigation Tabs
-    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+    tab1, tab_compare, tab_batch, tab2, tab3, tab4, tab5, tab6 = st.tabs([
         "🎙️ Single Audio Prediction",
+        "👥 Dual Voice Compare",
+        "📂 Batch Evaluation",
         "⚡ Real-World Degradation Stress-Test",
         "📊 Robustness Benchmark",
         "🔬 Unseen Generator OOD Analysis",
@@ -419,6 +421,155 @@ def main():
             # Clean up temp file
             if os.path.exists(tmp_path):
                 os.remove(tmp_path)
+
+    # -------------------------------------------------------------------
+    # TAB: DUAL AUDIO COMPARISON (SIDE-BY-SIDE FORENSICS)
+    # -------------------------------------------------------------------
+    with tab_compare:
+        st.subheader("Dual Voice Comparison & Difference Forensics")
+        st.markdown("Compare two audio clips side-by-side (e.g. Authentic Reference vs. Suspected Clone) to inspect acoustic differences and detection disparities.")
+
+        cmp_col1, cmp_col2 = st.columns(2)
+        with cmp_col1:
+            st.markdown("#### Sample A (Reference / Audio 1)")
+            file_a = st.file_uploader("Upload Audio A", type=["wav", "mp3", "flac", "ogg", "m4a"], key="cmp_file_a")
+        with cmp_col2:
+            st.markdown("#### Sample B (Suspect / Audio 2)")
+            file_b = st.file_uploader("Upload Audio B", type=["wav", "mp3", "flac", "ogg", "m4a"], key="cmp_file_b")
+
+        if file_a and file_b:
+            with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(file_a.name)[1]) as t_a:
+                t_a.write(file_a.getvalue())
+                path_a = t_a.name
+            with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(file_b.name)[1]) as t_b:
+                t_b.write(file_b.getvalue())
+                path_b = t_b.name
+
+            try:
+                wf_a, sr_a = preprocessor.process_file(path_a)
+                wf_b, sr_b = preprocessor.process_file(path_b)
+                spec_a = extractor(wf_a)
+                spec_b = extractor(wf_b)
+
+                with torch.no_grad():
+                    logits_a = model(spec_a.unsqueeze(0).to(device))
+                    probs_a = torch.softmax(logits_a, dim=1).cpu().numpy()[0]
+                    logits_b = model(spec_b.unsqueeze(0).to(device))
+                    probs_b = torch.softmax(logits_b, dim=1).cpu().numpy()[0]
+
+                score_a_ai = float(probs_a[1])
+                score_b_ai = float(probs_b[1])
+
+                res_c1, res_c2 = st.columns(2)
+                with res_c1:
+                    st.audio(file_a, format="audio/wav")
+                    pred_a_txt = "🚨 AI-GENERATED" if score_a_ai >= custom_threshold else "✅ AUTHENTIC (REAL)"
+                    st.metric(f"Sample A: {file_a.name}", pred_a_txt, f"{score_a_ai*100:.1f}% AI Prob")
+                    fig_a = plot_spectrogram(spec_a, title=f"Spectrogram A ({file_a.name})")
+                    st.pyplot(fig_a)
+                    plt.close(fig_a)
+
+                with res_c2:
+                    st.audio(file_b, format="audio/wav")
+                    pred_b_txt = "🚨 AI-GENERATED" if score_b_ai >= custom_threshold else "✅ AUTHENTIC (REAL)"
+                    st.metric(f"Sample B: {file_b.name}", pred_b_txt, f"{score_b_ai*100:.1f}% AI Prob")
+                    fig_b = plot_spectrogram(spec_b, title=f"Spectrogram B ({file_b.name})")
+                    st.pyplot(fig_b)
+                    plt.close(fig_b)
+
+                # Spectral difference heat map
+                st.markdown("#### 🔍 Spectral Divergence Analysis")
+                min_t = min(spec_a.shape[-1], spec_b.shape[-1])
+                diff_matrix = torch.abs(spec_a[:, :, :min_t] - spec_b[:, :, :min_t]).squeeze(0).cpu().numpy()
+                fig_diff, ax_d = plt.subplots(figsize=(10, 3.5))
+                im = ax_d.imshow(diff_matrix, aspect='auto', origin='lower', cmap='plasma')
+                ax_d.set_title("Absolute Spectral Difference (|A - B|)")
+                ax_d.set_xlabel("Time Frames")
+                ax_d.set_ylabel("Mel Frequency Bins")
+                plt.colorbar(im, ax=ax_d, label="Magnitude Delta")
+                st.pyplot(fig_diff)
+                plt.close(fig_diff)
+
+            finally:
+                if os.path.exists(path_a): os.remove(path_a)
+                if os.path.exists(path_b): os.remove(path_b)
+
+    # -------------------------------------------------------------------
+    # TAB: BATCH AUDIO EVALUATION & CSV EXPORT
+    # -------------------------------------------------------------------
+    with tab_batch:
+        st.subheader("Batch Audio Processing & Forensic Export")
+        st.markdown("Upload multiple audio files or evaluation batches to classify in bulk and export results.")
+
+        batch_files = st.file_uploader("Upload Multiple Audio Files", type=["wav", "mp3", "flac", "ogg", "m4a"], accept_multiple_files=True, key="batch_files")
+
+        if batch_files:
+            if st.button("🚀 Run Batch Classification", use_container_width=True):
+                batch_records = []
+                progress_bar = st.progress(0)
+                status_text = st.empty()
+
+                for idx, b_file in enumerate(batch_files):
+                    status_text.text(f"Processing ({idx+1}/{len(batch_files)}): {b_file.name}...")
+                    with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(b_file.name)[1]) as b_tmp:
+                        b_tmp.write(b_file.getvalue())
+                        b_path = b_tmp.name
+
+                    try:
+                        b_wf, b_sr = preprocessor.process_file(b_path)
+                        b_spec = extractor(b_wf)
+                        with torch.no_grad():
+                            b_logits = model(b_spec.unsqueeze(0).to(device))
+                            b_probs = torch.softmax(b_logits, dim=1).cpu().numpy()[0]
+                        
+                        b_p_real = float(b_probs[0])
+                        b_p_fake = float(b_probs[1])
+                        b_pred = "AI-GENERATED" if b_p_fake >= custom_threshold else "REAL"
+
+                        batch_records.append({
+                            "Filename": b_file.name,
+                            "Size (KB)": round(len(b_file.getvalue()) / 1024, 2),
+                            "Prediction": b_pred,
+                            "AI Probability": round(b_p_fake, 4),
+                            "Real Probability": round(b_p_real, 4),
+                            "Confidence": f"{max(b_p_real, b_p_fake)*100:.1f}%"
+                        })
+                    except Exception as err:
+                        batch_records.append({
+                            "Filename": b_file.name,
+                            "Size (KB)": round(len(b_file.getvalue()) / 1024, 2),
+                            "Prediction": "ERROR",
+                            "AI Probability": 0.0,
+                            "Real Probability": 0.0,
+                            "Confidence": str(err)
+                        })
+                    finally:
+                        if os.path.exists(b_path): os.remove(b_path)
+
+                    progress_bar.progress((idx + 1) / len(batch_files))
+
+                status_text.text("Batch processing complete!")
+                df_batch = pd.DataFrame(batch_records)
+
+                # Summary stats
+                n_total = len(df_batch)
+                n_fake = sum(df_batch["Prediction"] == "AI-GENERATED")
+                n_real = sum(df_batch["Prediction"] == "REAL")
+                m1, m2, m3 = st.columns(3)
+                m1.metric("Total Analyzed", n_total)
+                m2.metric("Flagged Synthetic", n_fake, f"{n_fake/n_total*100:.1f}%")
+                m3.metric("Verified Authentic", n_real, f"{n_real/n_total*100:.1f}%")
+
+                st.dataframe(df_batch, use_container_width=True)
+
+                csv_data = df_batch.to_csv(index=False).encode('utf-8')
+                st.download_button(
+                    label="📥 Download Batch Results (CSV)",
+                    data=csv_data,
+                    file_name="deepshield_batch_predictions.csv",
+                    mime="text/csv",
+                    use_container_width=True
+                )
 
     # -------------------------------------------------------------------
     # TAB 2: REAL-WORLD DEGRADATION STRESS-TESTING

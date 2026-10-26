@@ -1,0 +1,31 @@
+# Python environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# IDE and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Frontend dependencies and build output
+node_modules/
+dist/
+
+# Generated reports and temporary results
+reports/

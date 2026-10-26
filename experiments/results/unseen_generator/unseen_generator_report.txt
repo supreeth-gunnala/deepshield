@@ -1,0 +1,9 @@
+DEEPSHIELD UNSEEN GENERATOR REPORT
+Train Generators: ['generator_A', 'generator_B']
+Unseen Test Generators: ['generator_C']
+Overall Test Accuracy: 0.1667
+Overall Test F1: 0.0
+
+             num_samples  accuracy  precision  recall  f1_score
+generator_C         10.0       0.0        0.0     0.0       0.0
+human                2.0       1.0        1.0     1.0       1.0

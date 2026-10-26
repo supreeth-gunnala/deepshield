@@ -1,0 +1,23 @@
+condition,num_samples,accuracy,precision,recall,f1_score,roc_auc,robustness_drop,percentage_drop,flip_rate,mean_conf_change,model
+Clean Audio,12,0.1667,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,CNN Baseline
+Noise 20dB,12,0.8333,0.8333,1.0,0.9091,1.0,0.0,0.0,1.0,-0.2887,CNN Baseline
+Noise 10dB,12,0.8333,0.8333,1.0,0.9091,1.0,0.0,0.0,1.0,-0.327,CNN Baseline
+Noise 5dB,12,0.8333,0.8333,1.0,0.9091,1.0,0.0,0.0,1.0,-0.3367,CNN Baseline
+Resample 8kHz,12,0.1667,0.0,0.0,0.0,1.0,0.0,0.0,0.0,-0.0012,CNN Baseline
+Resample 12kHz,12,0.1667,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0002,CNN Baseline
+Telephone VoIP,12,0.1667,0.0,0.0,0.0,1.0,0.0,0.0,0.0,-0.0009,CNN Baseline
+Pitch +2,12,0.1667,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0182,CNN Baseline
+Pitch -2,12,0.8333,0.8333,1.0,0.9091,1.0,0.0,0.0,1.0,0.1013,CNN Baseline
+Compression 8-bit,12,0.8333,0.8333,1.0,0.9091,1.0,0.0,0.0,1.0,-0.0939,CNN Baseline
+Combined Degradation,12,0.8333,0.8333,1.0,0.9091,1.0,0.0,0.0,1.0,-0.0556,CNN Baseline
+Clean Audio,12,0.1667,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,Advanced CRNN
+Noise 20dB,12,0.8333,0.8333,1.0,0.9091,1.0,0.0,0.0,1.0,-0.1348,Advanced CRNN
+Noise 10dB,12,0.8333,0.8333,1.0,0.9091,1.0,0.0,0.0,1.0,-0.1399,Advanced CRNN
+Noise 5dB,12,0.8333,0.8333,1.0,0.9091,1.0,0.0,0.0,1.0,-0.1405,Advanced CRNN
+Resample 8kHz,12,0.1667,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0007,Advanced CRNN
+Resample 12kHz,12,0.1667,0.0,0.0,0.0,1.0,0.0,0.0,0.0,-0.0001,Advanced CRNN
+Telephone VoIP,12,0.1667,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0008,Advanced CRNN
+Pitch +2,12,0.1667,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0874,Advanced CRNN
+Pitch -2,12,0.1667,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2916,Advanced CRNN
+Compression 8-bit,12,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.8333,0.1359,Advanced CRNN
+Combined Degradation,12,0.8333,0.8333,1.0,0.9091,1.0,0.0,0.0,1.0,0.2914,Advanced CRNN

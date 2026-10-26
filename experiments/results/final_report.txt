@@ -1,0 +1,38 @@
+========================================================================
+      DEEPSHIELD: ROBUST DETECTION OF AI-GENERATED SPEECH               
+            FINAL RESEARCH & EVALUATION REPORT                           
+========================================================================
+
+1. EXECUTIVE SUMMARY & OBJECTIVE
+------------------------------------------------------------------------
+DeepShield evaluates deepfake speech detection robustness under unseen AI
+generators and real-world audio degradations (noise, compression, resampling,
+and telephone bandpass filtering).
+
+2. EXPERIMENTAL PROTOCOL
+------------------------------------------------------------------------
+- Audio Standardization : 16,000 Hz Mono, Peak Amplitude Normalized
+- Feature Extractor    : 128-bin Log-Mel Spectrogram (dB scaled, Z-score normalized)
+- Evaluated Models     : 2D CNN Baseline (356k params) vs Advanced CRNN (2.9M params)
+- Protocol             : Generator-Disjoint Splitting (Unseen Generator C in Test Only)
+
+3. ROBUSTNESS PERFORMANCE BENCHMARK
+------------------------------------------------------------------------
+           condition  accuracy  precision  recall  f1_score  robustness_drop  percentage_drop
+         Clean Audio    0.1667     0.0000     0.0    0.0000              0.0              0.0
+          Noise 20dB    0.8333     0.8333     1.0    0.9091              0.0              0.0
+          Noise 10dB    0.8333     0.8333     1.0    0.9091              0.0              0.0
+           Noise 5dB    0.8333     0.8333     1.0    0.9091              0.0              0.0
+       Resample 8kHz    0.1667     0.0000     0.0    0.0000              0.0              0.0
+      Resample 12kHz    0.1667     0.0000     0.0    0.0000              0.0              0.0
+      Telephone VoIP    0.1667     0.0000     0.0    0.0000              0.0              0.0
+            Pitch +2    0.1667     0.0000     0.0    0.0000              0.0              0.0
+            Pitch -2    0.8333     0.8333     1.0    0.9091              0.0              0.0
+   Compression 8-bit    0.8333     0.8333     1.0    0.9091              0.0              0.0
+Combined Degradation    0.8333     0.8333     1.0    0.9091              0.0              0.0
+
+4. RESEARCH LIMITATIONS & NOTES
+------------------------------------------------------------------------
+- Pipeline Validation: Current runs utilize synthetic mock benchmark files.
+- Real Data Integration: Place real datasets in data/raw/ and re-index.
+========================================================================

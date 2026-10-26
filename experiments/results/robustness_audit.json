@@ -1,0 +1,346 @@
+{
+  "metrics": {
+    "clean": {
+      "accuracy": 0.7967,
+      "precision": 0.7405,
+      "recall": 0.9133,
+      "f1_score": 0.8179,
+      "roc_auc": 0.8329,
+      "confusion_matrix": [
+        [
+          102,
+          48
+        ],
+        [
+          13,
+          137
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n        REAL       0.89      0.68      0.77       150\nAI-GENERATED       0.74      0.91      0.82       150\n\n    accuracy                           0.80       300\n   macro avg       0.81      0.80      0.79       300\nweighted avg       0.81      0.80      0.79       300\n",
+      "generator_breakdown": {
+        "asvspoof_eval": {
+          "num_samples": 150,
+          "accuracy": 0.9133,
+          "precision": 0.5,
+          "recall": 0.4567,
+          "f1_score": 0.4774
+        },
+        "human": {
+          "num_samples": 150,
+          "accuracy": 0.68,
+          "precision": 0.5,
+          "recall": 0.34,
+          "f1_score": 0.4048
+        }
+      }
+    },
+    "noise_20db": {
+      "accuracy": 0.8,
+      "precision": 0.7368,
+      "recall": 0.9333,
+      "f1_score": 0.8235,
+      "roc_auc": 0.8374,
+      "confusion_matrix": [
+        [
+          100,
+          50
+        ],
+        [
+          10,
+          140
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n        REAL       0.91      0.67      0.77       150\nAI-GENERATED       0.74      0.93      0.82       150\n\n    accuracy                           0.80       300\n   macro avg       0.82      0.80      0.80       300\nweighted avg       0.82      0.80      0.80       300\n",
+      "generator_breakdown": {
+        "asvspoof_eval": {
+          "num_samples": 150,
+          "accuracy": 0.9333,
+          "precision": 0.5,
+          "recall": 0.4667,
+          "f1_score": 0.4828
+        },
+        "human": {
+          "num_samples": 150,
+          "accuracy": 0.6667,
+          "precision": 0.5,
+          "recall": 0.3333,
+          "f1_score": 0.4
+        }
+      }
+    },
+    "noise_10db": {
+      "accuracy": 0.8,
+      "precision": 0.7368,
+      "recall": 0.9333,
+      "f1_score": 0.8235,
+      "roc_auc": 0.8345,
+      "confusion_matrix": [
+        [
+          100,
+          50
+        ],
+        [
+          10,
+          140
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n        REAL       0.91      0.67      0.77       150\nAI-GENERATED       0.74      0.93      0.82       150\n\n    accuracy                           0.80       300\n   macro avg       0.82      0.80      0.80       300\nweighted avg       0.82      0.80      0.80       300\n",
+      "generator_breakdown": {
+        "asvspoof_eval": {
+          "num_samples": 150,
+          "accuracy": 0.9333,
+          "precision": 0.5,
+          "recall": 0.4667,
+          "f1_score": 0.4828
+        },
+        "human": {
+          "num_samples": 150,
+          "accuracy": 0.6667,
+          "precision": 0.5,
+          "recall": 0.3333,
+          "f1_score": 0.4
+        }
+      }
+    },
+    "noise_0db": {
+      "accuracy": 0.7933,
+      "precision": 0.7268,
+      "recall": 0.94,
+      "f1_score": 0.8198,
+      "roc_auc": 0.827,
+      "confusion_matrix": [
+        [
+          97,
+          53
+        ],
+        [
+          9,
+          141
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n        REAL       0.92      0.65      0.76       150\nAI-GENERATED       0.73      0.94      0.82       150\n\n    accuracy                           0.79       300\n   macro avg       0.82      0.79      0.79       300\nweighted avg       0.82      0.79      0.79       300\n",
+      "generator_breakdown": {
+        "asvspoof_eval": {
+          "num_samples": 150,
+          "accuracy": 0.94,
+          "precision": 0.5,
+          "recall": 0.47,
+          "f1_score": 0.4845
+        },
+        "human": {
+          "num_samples": 150,
+          "accuracy": 0.6467,
+          "precision": 0.5,
+          "recall": 0.3233,
+          "f1_score": 0.3927
+        }
+      }
+    },
+    "resample_8k": {
+      "accuracy": 0.66,
+      "precision": 0.6062,
+      "recall": 0.9133,
+      "f1_score": 0.7287,
+      "roc_auc": 0.7021,
+      "confusion_matrix": [
+        [
+          61,
+          89
+        ],
+        [
+          13,
+          137
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n        REAL       0.82      0.41      0.54       150\nAI-GENERATED       0.61      0.91      0.73       150\n\n    accuracy                           0.66       300\n   macro avg       0.72      0.66      0.64       300\nweighted avg       0.72      0.66      0.64       300\n",
+      "generator_breakdown": {
+        "asvspoof_eval": {
+          "num_samples": 150,
+          "accuracy": 0.9133,
+          "precision": 0.5,
+          "recall": 0.4567,
+          "f1_score": 0.4774
+        },
+        "human": {
+          "num_samples": 150,
+          "accuracy": 0.4067,
+          "precision": 0.5,
+          "recall": 0.2033,
+          "f1_score": 0.2891
+        }
+      }
+    },
+    "telephone_filter": {
+      "accuracy": 0.7967,
+      "precision": 0.7405,
+      "recall": 0.9133,
+      "f1_score": 0.8179,
+      "roc_auc": 0.837,
+      "confusion_matrix": [
+        [
+          102,
+          48
+        ],
+        [
+          13,
+          137
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n        REAL       0.89      0.68      0.77       150\nAI-GENERATED       0.74      0.91      0.82       150\n\n    accuracy                           0.80       300\n   macro avg       0.81      0.80      0.79       300\nweighted avg       0.81      0.80      0.79       300\n",
+      "generator_breakdown": {
+        "asvspoof_eval": {
+          "num_samples": 150,
+          "accuracy": 0.9133,
+          "precision": 0.5,
+          "recall": 0.4567,
+          "f1_score": 0.4774
+        },
+        "human": {
+          "num_samples": 150,
+          "accuracy": 0.68,
+          "precision": 0.5,
+          "recall": 0.34,
+          "f1_score": 0.4048
+        }
+      }
+    },
+    "compression_64kbps": {
+      "accuracy": 0.7967,
+      "precision": 0.7405,
+      "recall": 0.9133,
+      "f1_score": 0.8179,
+      "roc_auc": 0.8329,
+      "confusion_matrix": [
+        [
+          102,
+          48
+        ],
+        [
+          13,
+          137
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n        REAL       0.89      0.68      0.77       150\nAI-GENERATED       0.74      0.91      0.82       150\n\n    accuracy                           0.80       300\n   macro avg       0.81      0.80      0.79       300\nweighted avg       0.81      0.80      0.79       300\n",
+      "generator_breakdown": {
+        "asvspoof_eval": {
+          "num_samples": 150,
+          "accuracy": 0.9133,
+          "precision": 0.5,
+          "recall": 0.4567,
+          "f1_score": 0.4774
+        },
+        "human": {
+          "num_samples": 150,
+          "accuracy": 0.68,
+          "precision": 0.5,
+          "recall": 0.34,
+          "f1_score": 0.4048
+        }
+      }
+    },
+    "combined_noise10db_resample8k": {
+      "accuracy": 0.6233,
+      "precision": 0.572,
+      "recall": 0.98,
+      "f1_score": 0.7224,
+      "roc_auc": 0.733,
+      "confusion_matrix": [
+        [
+          40,
+          110
+        ],
+        [
+          3,
+          147
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n        REAL       0.93      0.27      0.41       150\nAI-GENERATED       0.57      0.98      0.72       150\n\n    accuracy                           0.62       300\n   macro avg       0.75      0.62      0.57       300\nweighted avg       0.75      0.62      0.57       300\n",
+      "generator_breakdown": {
+        "asvspoof_eval": {
+          "num_samples": 150,
+          "accuracy": 0.98,
+          "precision": 0.5,
+          "recall": 0.49,
+          "f1_score": 0.4949
+        },
+        "human": {
+          "num_samples": 150,
+          "accuracy": 0.2667,
+          "precision": 0.5,
+          "recall": 0.1333,
+          "f1_score": 0.2105
+        }
+      }
+    }
+  },
+  "condition_counts": {
+    "clean": 300,
+    "combined_noise10db_resample8k": 300,
+    "compression_64kbps": 300,
+    "noise_0db": 300,
+    "noise_10db": 300,
+    "noise_20db": 300,
+    "resample_8k": 300,
+    "telephone_filter": 300
+  },
+  "per_condition_change_counts": {
+    "clean": 0,
+    "combined_noise10db_resample8k": 72,
+    "compression_64kbps": 0,
+    "noise_0db": 11,
+    "noise_10db": 7,
+    "noise_20db": 7,
+    "resample_8k": 55,
+    "telephone_filter": 2
+  },
+  "false_positive_rates": {
+    "clean": 0.32,
+    "combined_noise10db_resample8k": 0.7333333333333333,
+    "compression_64kbps": 0.32,
+    "noise_0db": 0.35333333333333333,
+    "noise_10db": 0.3333333333333333,
+    "noise_20db": 0.3333333333333333,
+    "resample_8k": 0.5933333333333334,
+    "telephone_filter": 0.32
+  },
+  "label_mapping": {
+    "0": "REAL",
+    "1": "AI-GENERATED"
+  },
+  "roc_auc_positive_class": "AI-GENERATED (label 1)",
+  "generator_audit": {
+    "clean": {
+      "asvspoof_eval": 150,
+      "human": 150
+    },
+    "combined_noise10db_resample8k": {
+      "asvspoof_eval": 150,
+      "human": 150
+    },
+    "compression_64kbps": {
+      "asvspoof_eval": 150,
+      "human": 150
+    },
+    "noise_0db": {
+      "asvspoof_eval": 150,
+      "human": 150
+    },
+    "noise_10db": {
+      "asvspoof_eval": 150,
+      "human": 150
+    },
+    "noise_20db": {
+      "asvspoof_eval": 150,
+      "human": 150
+    },
+    "resample_8k": {
+      "asvspoof_eval": 150,
+      "human": 150
+    },
+    "telephone_filter": {
+      "asvspoof_eval": 150,
+      "human": 150
+    }
+  },
+  "inconsistencies": []
+}

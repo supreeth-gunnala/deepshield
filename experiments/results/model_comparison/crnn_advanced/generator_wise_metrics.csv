@@ -1,0 +1,23 @@
+condition,generator,num_samples,accuracy,precision,recall,f1_score
+Clean Audio,generator_C,10,0.0,0.0,0.0,0.0
+Clean Audio,human,2,1.0,1.0,1.0,1.0
+Noise 20dB,generator_C,10,1.0,1.0,1.0,1.0
+Noise 20dB,human,2,0.0,0.0,0.0,0.0
+Noise 10dB,generator_C,10,1.0,1.0,1.0,1.0
+Noise 10dB,human,2,0.0,0.0,0.0,0.0
+Noise 5dB,generator_C,10,1.0,1.0,1.0,1.0
+Noise 5dB,human,2,0.0,0.0,0.0,0.0
+Resample 8kHz,generator_C,10,0.0,0.0,0.0,0.0
+Resample 8kHz,human,2,1.0,1.0,1.0,1.0
+Resample 12kHz,generator_C,10,0.0,0.0,0.0,0.0
+Resample 12kHz,human,2,1.0,1.0,1.0,1.0
+Telephone VoIP,generator_C,10,0.0,0.0,0.0,0.0
+Telephone VoIP,human,2,1.0,1.0,1.0,1.0
+Pitch +2,generator_C,10,0.0,0.0,0.0,0.0
+Pitch +2,human,2,1.0,1.0,1.0,1.0
+Pitch -2,generator_C,10,0.0,0.0,0.0,0.0
+Pitch -2,human,2,1.0,1.0,1.0,1.0
+Compression 8-bit,generator_C,10,1.0,1.0,1.0,1.0
+Compression 8-bit,human,2,1.0,1.0,1.0,1.0
+Combined Degradation,generator_C,10,1.0,1.0,1.0,1.0
+Combined Degradation,human,2,0.0,0.0,0.0,0.0

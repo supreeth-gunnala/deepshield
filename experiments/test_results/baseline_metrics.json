@@ -1,0 +1,34 @@
+{
+    "accuracy": 0.1667,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1_score": 0.0,
+    "roc_auc": 1.0,
+    "confusion_matrix": [
+        [
+            2,
+            0
+        ],
+        [
+            10,
+            0
+        ]
+    ],
+    "classification_report": "              precision    recall  f1-score   support\n\n        REAL       0.17      1.00      0.29         2\nAI-GENERATED       0.00      0.00      0.00        10\n\n    accuracy                           0.17        12\n   macro avg       0.08      0.50      0.14        12\nweighted avg       0.03      0.17      0.05        12\n",
+    "generator_breakdown": {
+        "generator_C": {
+            "num_samples": 10,
+            "accuracy": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        },
+        "human": {
+            "num_samples": 2,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        }
+    }
+}

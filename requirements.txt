@@ -1,0 +1,18 @@
+# Core Deep Learning & Audio Processing Frameworks
+torch>=2.0.0
+torchaudio>=2.0.0
+librosa>=0.10.0
+soundfile>=0.12.1
+scipy>=1.10.0
+numpy>=1.24.0,<2.0.0
+
+# Data Science & Machine Learning Utilities
+pandas>=2.0.0
+scikit-learn>=1.2.0
+pyyaml>=6.0
+tqdm>=4.65.0
+
+# Visualization & Dashboard Interface
+matplotlib>=3.7.0
+seaborn>=0.12.0
+streamlit>=1.25.0

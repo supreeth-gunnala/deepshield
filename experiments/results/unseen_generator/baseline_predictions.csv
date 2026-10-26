@@ -1,0 +1,13 @@
+file_path,filename,label,label_id,pred_label_id,pred_label,prob_real,prob_fake,confidence,generator,split
+C:\Users\user\Downloads\Ai Project\data\raw\fake\generator_C\generator_C_sample_001.wav,generator_C_sample_001.wav,fake,1,0,real,0.6341,0.3659,0.6341,generator_C,test
+C:\Users\user\Downloads\Ai Project\data\raw\fake\generator_C\generator_C_sample_002.wav,generator_C_sample_002.wav,fake,1,0,real,0.6341,0.3659,0.6341,generator_C,test
+C:\Users\user\Downloads\Ai Project\data\raw\fake\generator_C\generator_C_sample_003.wav,generator_C_sample_003.wav,fake,1,0,real,0.6341,0.3659,0.6341,generator_C,test
+C:\Users\user\Downloads\Ai Project\data\raw\fake\generator_C\generator_C_sample_004.wav,generator_C_sample_004.wav,fake,1,0,real,0.6341,0.3659,0.6341,generator_C,test
+C:\Users\user\Downloads\Ai Project\data\raw\fake\generator_C\generator_C_sample_005.wav,generator_C_sample_005.wav,fake,1,0,real,0.6341,0.3659,0.6341,generator_C,test
+C:\Users\user\Downloads\Ai Project\data\raw\fake\generator_C\generator_C_sample_006.wav,generator_C_sample_006.wav,fake,1,0,real,0.6341,0.3659,0.6341,generator_C,test
+C:\Users\user\Downloads\Ai Project\data\raw\fake\generator_C\generator_C_sample_007.wav,generator_C_sample_007.wav,fake,1,0,real,0.6341,0.3659,0.6341,generator_C,test
+C:\Users\user\Downloads\Ai Project\data\raw\fake\generator_C\generator_C_sample_008.wav,generator_C_sample_008.wav,fake,1,0,real,0.6341,0.3659,0.6341,generator_C,test
+C:\Users\user\Downloads\Ai Project\data\raw\fake\generator_C\generator_C_sample_009.wav,generator_C_sample_009.wav,fake,1,0,real,0.6341,0.3659,0.6341,generator_C,test
+C:\Users\user\Downloads\Ai Project\data\raw\fake\generator_C\generator_C_sample_010.wav,generator_C_sample_010.wav,fake,1,0,real,0.6341,0.3659,0.6341,generator_C,test
+C:\Users\user\Downloads\Ai Project\data\raw\real\human_sample_002.wav,human_sample_002.wav,real,0,0,real,0.6757,0.3243,0.6757,human,test
+C:\Users\user\Downloads\Ai Project\data\raw\real\human_sample_009.wav,human_sample_009.wav,real,0,0,real,0.6757,0.3243,0.6757,human,test

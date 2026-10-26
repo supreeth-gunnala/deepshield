@@ -1,0 +1,94 @@
+# DeepShield Central Project Configuration
+
+project:
+  name: "DeepShield"
+  version: "1.0.0"
+  seed: 42
+
+dashboard:
+  title: "DeepShield: Robust Detection of AI-Generated Speech Under Unseen Generators and Real-World Audio Degradation"
+  default_model: "cnn_baseline"
+  max_upload_mb: 25
+  results_dir: "experiments/results"
+
+audio:
+  sample_rate: 16000
+  channels: 1 # Mono
+  duration_seconds: 5.0
+  target_length: 80000 # 16000 * 5.0
+  min_duration_seconds: 0.5
+  max_duration_seconds: 30.0
+  silence_threshold_db: -50.0
+  normalization_type: "peak" # "peak" or "rms"
+
+features:
+  n_mels: 128
+  n_fft: 1024
+  hop_length: 512
+  win_length: 1024
+  f_min: 0.0
+  f_max: 8000.0 # Nyquist limit for 16kHz
+  power: 2.0 # Power spectrogram
+  normalize: true # Standardize spectrogram feature values
+  cache_features: true
+  cache_dir: "data/processed/features"
+
+dataset:
+  raw_dir: "data/raw/asvspoof_voice"
+  real_voice_dir: "data/raw/asvspoof_voice/real_voice"
+  fake_voice_dir: "data/raw/asvspoof_voice/fake_voice"
+  real_bg_dir: "data/raw/asvspoof_voice/real_bg"
+  fake_bg_dir: "data/raw/asvspoof_voice/fake_bg"
+  processed_dir: "data/processed"
+  metadata_dir: "data/metadata"
+  metadata_csv: "data/metadata/dataset_metadata.csv"
+
+  train_generators: ["human", "asvspoof_eval"]
+  val_generators: ["human", "asvspoof_eval"]
+  unseen_test_generators: []
+
+  val_split_ratio: 0.15
+  test_split_ratio: 0.15
+
+dataloader:
+  batch_size: 8
+  num_workers: 0 # 0 for Windows multiprocessing safety
+  shuffle_train: true
+  pin_memory: false
+
+model:
+  name: "cnn_baseline" # Options: "cnn_baseline", "crnn_advanced"
+  num_classes: 2 # 0: Real, 1: AI-Generated
+  input_channels: 1
+  dropout: 0.3
+  conv_channels: [32, 64, 128]
+  fc_hidden_dim: 128
+
+advanced_model:
+  name: "crnn_advanced"
+  conv_channels: [32, 64, 128, 256]
+  rnn_hidden_dim: 128
+  rnn_layers: 2
+  dropout: 0.3
+
+training:
+  epochs: 5
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  early_stopping_patience: 5
+  checkpoint_dir: "models_saved/checkpoints"
+
+degradations:
+  enabled: true
+  noise_snr_db: [20, 10, 5]
+  resample_rates: [8000, 12000]
+  telephone_band: [300.0, 3400.0]
+  pitch_shift_semitones: [-2, 2]
+  quantization_bits: [8, 12]
+  combined_sequence: ["noise", "telephone", "resample"]
+  output_dir: "data/processed/degraded_examples"
+
+paths:
+  data_dir: "data"
+  models_dir: "models_saved"
+  experiments_dir: "experiments"

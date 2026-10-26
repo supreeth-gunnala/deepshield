@@ -1,0 +1,167 @@
+{
+  "recomputed_metrics": {
+    "clean": {
+      "accuracy": 0.7967,
+      "precision": 0.7405,
+      "recall": 0.9133,
+      "f1_score": 0.8179,
+      "roc_auc": 0.8329,
+      "confusion_matrix": [
+        [
+          102,
+          48
+        ],
+        [
+          13,
+          137
+        ]
+      ],
+      "false_positive_rate": 0.32
+    },
+    "combined_noise10db_resample8k": {
+      "accuracy": 0.6233,
+      "precision": 0.572,
+      "recall": 0.98,
+      "f1_score": 0.7224,
+      "roc_auc": 0.733,
+      "confusion_matrix": [
+        [
+          40,
+          110
+        ],
+        [
+          3,
+          147
+        ]
+      ],
+      "false_positive_rate": 0.7333
+    },
+    "compression_64kbps": {
+      "accuracy": 0.7967,
+      "precision": 0.7405,
+      "recall": 0.9133,
+      "f1_score": 0.8179,
+      "roc_auc": 0.8329,
+      "confusion_matrix": [
+        [
+          102,
+          48
+        ],
+        [
+          13,
+          137
+        ]
+      ],
+      "false_positive_rate": 0.32
+    },
+    "noise_0db": {
+      "accuracy": 0.7933,
+      "precision": 0.7268,
+      "recall": 0.94,
+      "f1_score": 0.8198,
+      "roc_auc": 0.827,
+      "confusion_matrix": [
+        [
+          97,
+          53
+        ],
+        [
+          9,
+          141
+        ]
+      ],
+      "false_positive_rate": 0.3533
+    },
+    "noise_10db": {
+      "accuracy": 0.8,
+      "precision": 0.7368,
+      "recall": 0.9333,
+      "f1_score": 0.8235,
+      "roc_auc": 0.8345,
+      "confusion_matrix": [
+        [
+          100,
+          50
+        ],
+        [
+          10,
+          140
+        ]
+      ],
+      "false_positive_rate": 0.3333
+    },
+    "noise_20db": {
+      "accuracy": 0.8,
+      "precision": 0.7368,
+      "recall": 0.9333,
+      "f1_score": 0.8235,
+      "roc_auc": 0.8374,
+      "confusion_matrix": [
+        [
+          100,
+          50
+        ],
+        [
+          10,
+          140
+        ]
+      ],
+      "false_positive_rate": 0.3333
+    },
+    "resample_8k": {
+      "accuracy": 0.66,
+      "precision": 0.6062,
+      "recall": 0.9133,
+      "f1_score": 0.7287,
+      "roc_auc": 0.7021,
+      "confusion_matrix": [
+        [
+          61,
+          89
+        ],
+        [
+          13,
+          137
+        ]
+      ],
+      "false_positive_rate": 0.5933
+    },
+    "telephone_filter": {
+      "accuracy": 0.7967,
+      "precision": 0.7405,
+      "recall": 0.9133,
+      "f1_score": 0.8179,
+      "roc_auc": 0.837,
+      "confusion_matrix": [
+        [
+          102,
+          48
+        ],
+        [
+          13,
+          137
+        ]
+      ],
+      "false_positive_rate": 0.32
+    }
+  },
+  "metric_mismatches": {},
+  "combined_condition_match": false,
+  "telephone_filter_waveform_unchanged": false,
+  "compression_waveform_unchanged": true,
+  "prediction_changes": {
+    "telephone_filter": 2,
+    "compression_64kbps": 0
+  },
+  "false_positive_rates": {
+    "clean": 0.32,
+    "combined_noise10db_resample8k": 0.7333,
+    "compression_64kbps": 0.32,
+    "noise_0db": 0.3533,
+    "noise_10db": 0.3333,
+    "noise_20db": 0.3333,
+    "resample_8k": 0.5933,
+    "telephone_filter": 0.32
+  },
+  "audit_inconsistencies": []
+}

@@ -1,0 +1,26 @@
+DEEPSHIELD ADVANCED MODEL COMPARISON REPORT
+==========================================
+
+        model            condition  accuracy  precision  recall  f1_score  robustness_drop
+ CNN Baseline          Clean Audio    0.1667     0.0000     0.0    0.0000              0.0
+ CNN Baseline           Noise 20dB    0.8333     0.8333     1.0    0.9091              0.0
+ CNN Baseline           Noise 10dB    0.8333     0.8333     1.0    0.9091              0.0
+ CNN Baseline            Noise 5dB    0.8333     0.8333     1.0    0.9091              0.0
+ CNN Baseline        Resample 8kHz    0.1667     0.0000     0.0    0.0000              0.0
+ CNN Baseline       Resample 12kHz    0.1667     0.0000     0.0    0.0000              0.0
+ CNN Baseline       Telephone VoIP    0.1667     0.0000     0.0    0.0000              0.0
+ CNN Baseline             Pitch +2    0.1667     0.0000     0.0    0.0000              0.0
+ CNN Baseline             Pitch -2    0.8333     0.8333     1.0    0.9091              0.0
+ CNN Baseline    Compression 8-bit    0.8333     0.8333     1.0    0.9091              0.0
+ CNN Baseline Combined Degradation    0.8333     0.8333     1.0    0.9091              0.0
+Advanced CRNN          Clean Audio    0.1667     0.0000     0.0    0.0000              0.0
+Advanced CRNN           Noise 20dB    0.8333     0.8333     1.0    0.9091              0.0
+Advanced CRNN           Noise 10dB    0.8333     0.8333     1.0    0.9091              0.0
+Advanced CRNN            Noise 5dB    0.8333     0.8333     1.0    0.9091              0.0
+Advanced CRNN        Resample 8kHz    0.1667     0.0000     0.0    0.0000              0.0
+Advanced CRNN       Resample 12kHz    0.1667     0.0000     0.0    0.0000              0.0
+Advanced CRNN       Telephone VoIP    0.1667     0.0000     0.0    0.0000              0.0
+Advanced CRNN             Pitch +2    0.1667     0.0000     0.0    0.0000              0.0
+Advanced CRNN             Pitch -2    0.1667     0.0000     0.0    0.0000              0.0
+Advanced CRNN    Compression 8-bit    1.0000     1.0000     1.0    1.0000              0.0
+Advanced CRNN Combined Degradation    0.8333     0.8333     1.0    0.9091              0.0

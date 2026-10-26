@@ -1,0 +1,13 @@
+{
+  "changed_predictions": 162,
+  "total_samples": 300,
+  "path_label_match": false,
+  "metrics_match": true,
+  "metric_differences": {},
+  "ffmpeg_check": {
+    "codec": "mp3",
+    "bitrate_kbps": 66,
+    "pass": true,
+    "details": "Codec is mp3 and bitrate \u2248 64 kbps"
+  }
+}
